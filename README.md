@@ -29,8 +29,17 @@ client software(web browser/mobile app) and server software.
 
 ## Reading web apis?
 
-We'll use an example to understand how data is represented in both XML and
-JSON formats.
+Let's imagine we are building ACME Shopping, a site to rival amazon.uk 😜.
+All it does is when a user searches for a product, it returns back a list of available
+products. How a product is represented is where JSON and XML comes in.
+
+<div align="center">
+  <img src="assets/acme_shopping.png" alt="Acme shopping"/>
+</div>
+
+We'll use the following [example structure](https://searchspring.zendesk.com/hc/en-us/articles/201185089-Sample-XML-Data-Feed)
+to understand how product data is represented in both XML and
+JSON formats for our imaginary shopping site.
 
 ### 1. XML
 
