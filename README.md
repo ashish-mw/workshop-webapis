@@ -47,7 +47,7 @@ to a `database` and the `individual sheets` in the file can be compared to `tabl
 
 ## Reading web apis?
 
-Let's imagine we are building ACME Shopping, a site to rival amazon.uk 😜.
+Let's imagine we are building ACME Shopping, a site to rival amazon.uk.
 All it does is when a user searches for a product, it returns back a list of available
 products. How a product is represented is where JSON and XML comes in.
 
