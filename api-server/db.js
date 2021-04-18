@@ -25,7 +25,7 @@ const serviceUsers = [
     fullName: 'Han Solo',
     admittedDate: '2020-10-18T02:30:25.477Z',
     symptoms: ['headaches'],
-    assignedDoctor: 2235
+    assignedDoctor: 2237
   }
 ];
 

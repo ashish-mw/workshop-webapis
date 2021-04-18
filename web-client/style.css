@@ -1,0 +1,46 @@
+body {
+  font-family: 'Avenir Book',Arial, Helvetica, sans-serif;
+  color: #222222;
+  background-color: #eee;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.container {
+  width: 60%;
+  max-width: 800px;
+  margin: 10px auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.top {
+  margin-top: 1rem;
+}
+
+span.color-list {
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: small;
+  border: 1px solid #eee;
+  background-color: purple;
+  border-radius: 3px;
+  color: #eee;
+  margin-right: 2px;
+  display: inline-block;
+}

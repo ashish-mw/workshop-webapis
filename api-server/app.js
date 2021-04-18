@@ -12,6 +12,14 @@ app.use(morgan(
   {immediate: true}));
 app.use(morgan("[:date[iso] #:id] Completed :status :res[content-length] in :response-time ms"))
 
+// CORS
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 const db = require('./db');
 
 app.get('/ping', (req, res) => {
@@ -23,7 +31,7 @@ app.get('/ping', (req, res) => {
 app.get('/service-users', (req, res) => {
   const serviceUsers = db.serviceUsers.map(su => {
     const suData = { ...su };
-    suData.assignedDoctor = db.doctors.find(d => d.id);
+    suData.assignedDoctor = db.doctors.find(d => d.id === suData.assignedDoctor);
     return suData;
   })
   return res.json({

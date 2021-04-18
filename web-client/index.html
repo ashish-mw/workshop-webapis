@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F.O.R.C.E Health Center</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="vue.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="text-center">F.O.R.C.E Health Center</h1>
+
+    <div id="app">
+      <div>
+        <h2>Patient list</h2>
+        <div v-if="isServiceUsersLoading">Loading patient list ⏳</div>
+        <div v-else>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Doctor in charge</th>
+              <th>Symptoms</th>
+              <th>Admitted date</th>
+            </tr>
+            <tr v-for="su of serviceUsers">
+              <td>{{ su.fullName }}</td>
+              <td>{{ su.assignedDoctor.fullName }} <small>[{{ su.assignedDoctor.department }}]</small></td>
+              <td>
+                <span v-for="s of su.symptoms">
+                  <span class="color-list">{{ s }}</span>
+                </span>
+              </td>
+              <td><small>{{ su.admittedDateLocale }}</small></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <h2>Doctors list</h2>
+        <div v-if="isDoctorsLoading">Loading doctors list ⏳</div>
+        <div v-else>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Department</th>
+            </tr>
+            <tr v-for="d of doctors">
+              <td>{{ d.fullName }}</td>
+              <td>{{ d.department }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
