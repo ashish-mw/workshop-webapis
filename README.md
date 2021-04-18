@@ -27,6 +27,24 @@ and [JSON](https://en.wikipedia.org/wiki/JSON)([REST](https://en.wikipedia.org/w
 webapps, the **representation of data is exactly that** and its understood by both the
 client software(web browser/mobile app) and server software.
 
+## Databases
+
+A DBMS in our case is a software that organises and operates on a collection of data.
+- A `table` is a collection of similar data.
+- A `database` is a collection of tables.
+
+When we make webapps, we create a database that our app will be using. Based on the type
+of data, we make tables. For example, if our app name is **ACME Shopping**, we'd have a
+database most likely named `acme_database` and it'll have tables like `users`, `products`,
+`purchases`, `invoices` and so on.
+
+An analogy of this would be a spreadsheet file. The `entire file` can be compared
+to a `database` and the `individual sheets` in the file can be compared to `tables`.
+
+<div align="center">
+  <img src="assets/sheets_vs_database.png" alt="Spreadsheet vs database"/>
+</div>
+
 ## Reading web apis?
 
 Let's imagine we are building ACME Shopping, a site to rival amazon.uk 😜.
