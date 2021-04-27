@@ -12,6 +12,21 @@ const app = new Vue({
     this.fetchData();
   },
   methods: {
+    deleteServiceUser: function (id) {
+      var _self = this;
+      fetch(`${API_URL}/service-users/${id}`, {
+        method: 'DELETE',
+        body: {}
+      })
+      .then(res => res.json())
+      .then(json => {
+        console.log(json)
+        _self.fetchServiceUsers()
+      })
+      .catch(e => {
+        console.error(e);
+      })
+    },
     fetchDoctors: function () {
       let _self = this;
       _self.isDoctorsLoading = true;

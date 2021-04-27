@@ -42,7 +42,7 @@
               <td><small>{{ su.admittedDateLocale }}</small></td>
               <td>
                 <button>✏️Edit</button>
-                <button>⛔️Delete</button>
+                <button @click="deleteServiceUser(su.id)">⛔️Delete</button>
               </td>
             </tr>
           </table>
