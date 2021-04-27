@@ -85,6 +85,12 @@ JSON formats for our imaginary shopping site.
 </Products>
 ```
 
+- e**X**tensible **M**arkup **L**anguage or XML represents information within **tags**.
+- In our example, things between `<Products>` and `</Products>` is the entire product list.
+- `<Products>` means the start and `</Products>` means the end.
+- Things between `<Product>` and `</Product>` gives the info about a product.
+- The data between `<Retail_Price>` and `</Retail_Price>` gives the price of that product.
+
 ### 2. JSON
 
 ```json
@@ -112,6 +118,11 @@ JSON formats for our imaginary shopping site.
 }
 ```
 
+- **J**ava**S**cript **O**bject **N**otation represents information as **key-value** pairs.
+- Things within a `{}` represent a single entity (an object).
+- Things within a `[]` represent multiple values.
+- At a quick glance JSON has less cruft compared to XML
+
 The reader might have noticed that things like `Date_Created`, `Retail_Price`,
 `Product_ID` have not made it into the UI from the JSON and XML. These are used
 by the application for operating on the individual item. **For example:** `Product_ID`
@@ -120,3 +131,64 @@ implementing a business logic where items created after a specific date needs to
 have a `NEW` banner.
 
 
+### Understanding the info in a json object
+
+```json
+{
+  "has_cod": true,
+  "min_delivery_date": "2021-04-27T07:31:12.763Z",
+  "orders_from": null,
+  "sales": 32
+}
+```
+
+- `has_cod`, `min_delivery_date`, `orders_from`, `sales` are called **keys**.
+- `true`, `2021-04-27T07:31:12.763Z`, `null`, `32` are **values**.
+- Hence a JSON object is a grouping of **key-value** pairs.
+- `has_cod` could mean the item has provision for Cash on Delivery. The value of
+`true` for it means that it does. Most APIs come with documentation that one
+can refer to get meaning behind keys.
+- `2021-04-27T07:31:12.763Z` is a date string with a timezone value attached. To
+see its human readable format, open your browser's JavaScript Console. To do this
+`Right-click > Inspect element > Console`.
+- Paste `new Date('2021-04-27T07:31:12.763Z')`
+- `null` means the value is not present.
+
+### Understanding the info in an xml object
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+  <has_cod>true</has_cod>
+  <min_delivery_date>2021-04-27T07:31:12.763Z</min_delivery_date>
+  <orders_from></orders_from>
+  <sales>32</sales>
+</product>
+```
+
+- `has_cod`, `min_delivery_date`, `orders_from`, `sales` are called **tags**.
+- values are contained within tags.
+
+## Free and open APIs
+
+- [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis)
+- [https://public-apis.xyz](https://public-apis.xyz)
+
+## Tools
+
+- [Postman](https://www.postman.com/product/api-client/)
+- [SoapUI](https://www.soapui.org/downloads/soapui/)
+
+## Running sample code
+
+- Open terminal
+- Install nodejs with
+```
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+$ nvm install node
+```
+- Or download from [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+- In one terminal, go into `api-server`, run `npm i` and then run `npm start`
+- In another terminal, go into `web-client`, run `./start.sh`
+- The api server is live on [http://localhost:3333](http://localhost:3333).
+- The web client is live on [http://localhost:3334](http://localhost:3334).
