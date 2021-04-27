@@ -111,3 +111,12 @@ JSON formats for our imaginary shopping site.
   ]
 }
 ```
+
+The reader might have noticed that things like `Date_Created`, `Retail_Price`,
+`Product_ID` have not made it into the UI from the JSON and XML. These are used
+by the application for operating on the individual item. **For example:** `Product_ID`
+is commonly used to target each unique item. `Date_Created` can be used for sorting or for
+implementing a business logic where items created after a specific date needs to
+have a `NEW` banner.
+
+
