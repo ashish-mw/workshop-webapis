@@ -7,11 +7,32 @@ const app = new Vue({
     serviceUsers: [],
     isDoctorsLoading: false,
     isServiceUsersLoading: false,
+    showServiceUserAdd: false,
+    serviceUserUnderEdit: null,
+    newPatient: {
+      "fullName": "",
+      "symptoms": '',
+      "assignedDoctor": null
+    }
   },
   mounted: function () {
     this.fetchData();
   },
   methods: {
+    clearNewUser: function () {
+      this.newPatient = {
+        "fullName": "",
+        "symptoms": '',
+        "assignedDoctor": null,
+      };
+    },
+    toggleServiceUserAdd: function () {
+      this.clearNewUser();
+      this.showServiceUserAdd = !this.showServiceUserAdd;
+    },
+    editServiceUser: function (user) {
+      this.serviceUserUnderEdit = user;
+    },
     deleteServiceUser: function (id) {
       var _self = this;
       fetch(`${API_URL}/service-users/${id}`, {
@@ -62,6 +83,32 @@ const app = new Vue({
     fetchData: function () {
       this.fetchDoctors();
       this.fetchServiceUsers();
+    },
+    addNewServiceUser: function (e) {
+      e.preventDefault();
+      var _self = this;
+      var payload = {
+        "fullName": _self.newPatient.fullName,
+        "symptoms": _self.newPatient.symptoms.split(','),
+        "assignedDoctor": _self.newPatient.assignedDoctor
+      }
+      fetch(`${API_URL}/service-users`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(res => res.json())
+      .then(json => {
+        console.log(json)
+        _self.fetchServiceUsers()
+        _self.toggleServiceUserAdd()
+      })
+      .catch(e => {
+        console.error(e);
+      })
     }
   }
 })
