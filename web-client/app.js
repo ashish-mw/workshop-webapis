@@ -32,6 +32,11 @@ const app = new Vue({
     },
     editServiceUser: function (user) {
       this.serviceUserUnderEdit = user;
+      this.newPatient = {
+        fullName: user.fullName,
+        symptoms: user.symptoms.join(', '),
+        assignedDoctor: user.assignedDoctor.id
+      }
     },
     deleteServiceUser: function (id) {
       var _self = this;
@@ -105,6 +110,36 @@ const app = new Vue({
         console.log(json)
         _self.fetchServiceUsers()
         _self.toggleServiceUserAdd()
+      })
+      .catch(e => {
+        console.error(e);
+      })
+    },
+    clearServiceUserEdit: function () {
+      var _self = this;
+      _self.serviceUserUnderEdit = null;
+    },
+    updateServiceUser: function (e) {
+      e.preventDefault();
+      var _self = this;
+      var payload = {
+        "fullName": _self.newPatient.fullName,
+        "symptoms": _self.newPatient.symptoms.split(','),
+        "assignedDoctor": _self.newPatient.assignedDoctor
+      }
+      fetch(`${API_URL}/service-users/${_self.serviceUserUnderEdit.id}`, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(res => res.json())
+      .then(json => {
+        console.log(json)
+        _self.fetchServiceUsers()
+        _self.clearServiceUserEdit();
       })
       .catch(e => {
         console.error(e);

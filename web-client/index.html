@@ -14,7 +14,7 @@
     <h1 class="text-center">F.O.R.C.E Health Center</h1>
 
     <div id="app">
-      <div v-if="!showServiceUserAdd">
+      <div v-if="!showServiceUserAdd && !serviceUserUnderEdit">
         <div class="d-flex">
           <h2>
             Patient list
@@ -82,6 +82,42 @@
 
           <div class="mt text-center">
             <button type="submit">✅ Create patient entry</button>
+          </div>
+        </form>
+      </div>
+
+      <div v-if="serviceUserUnderEdit">
+        <div>
+          <div>
+            <button @click="clearServiceUserEdit">⬅️ Go back</button>
+          </div>
+          <h2>
+            Edit patient
+          </h2>
+        </div>
+        <form @submit="updateServiceUser">
+          <div>
+            <label for="pfullname">Name:</label>
+            <input id="pfullname" type="text" v-model="newPatient.fullName" required placeholder="Ahsoka Tano"/>
+          </div>
+          <div>
+            <label for="psymptoms">
+              Symptoms:
+            </label>
+            <textarea id="psymptoms" v-model="newPatient.symptoms" required placeholder="cough, sneezing"></textarea>
+          </div>
+          <div>
+            <label for="pdoctor">
+              Assign doctor:
+            </label>
+            <select v-model="newPatient.assignedDoctor" id="pdoctor" required>
+              <option disabled value="null">Please choose</option>
+              <option v-for="d in doctors" :value="d.id">{{ d.fullName }} - {{ d.department }}</option>
+            </select>
+          </div>
+
+          <div class="mt text-center">
+            <button type="submit">✅ Update patient entry</button>
           </div>
         </form>
       </div>
