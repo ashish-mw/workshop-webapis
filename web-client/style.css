@@ -44,3 +44,23 @@ span.color-list {
   margin-right: 2px;
   display: inline-block;
 }
+
+button {
+  height: max-content;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.ml {
+  margin-left: 10px;
+}
+
+.mt {
+  margin-top: 25px;
+}

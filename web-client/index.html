@@ -15,7 +15,12 @@
 
     <div id="app">
       <div>
-        <h2>Patient list</h2>
+        <div class="d-flex">
+          <h2>
+            Patient list
+          </h2>
+          <button class="ml mt" @click="fetchServiceUsers">🌀Refresh</button>
+        </div>
         <div v-if="isServiceUsersLoading">Loading patient list ⏳</div>
         <div v-else>
           <table>
@@ -24,6 +29,7 @@
               <th>Doctor in charge</th>
               <th>Symptoms</th>
               <th>Admitted date</th>
+              <th>Action</th>
             </tr>
             <tr v-for="su of serviceUsers">
               <td>{{ su.fullName }}</td>
@@ -34,6 +40,10 @@
                 </span>
               </td>
               <td><small>{{ su.admittedDateLocale }}</small></td>
+              <td>
+                <button>✏️Edit</button>
+                <button>⛔️Delete</button>
+              </td>
             </tr>
           </table>
         </div>
