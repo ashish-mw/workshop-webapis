@@ -1,0 +1,157 @@
+[
+  {
+    "name": "My Collection",
+    "folders": [],
+    "requests": []
+  },
+  {
+    "name": "Force API",
+    "folders": [],
+    "requests": [
+      {
+        "url": "https://64477626be16.ngrok.io",
+        "path": "/service-users/1234",
+        "method": "PUT",
+        "auth": "None",
+        "httpUser": "",
+        "httpPassword": "",
+        "passwordFieldType": "password",
+        "bearerToken": "",
+        "headers": [],
+        "params": [],
+        "bodyParams": [
+          {
+            "active": true,
+            "key": "fullName",
+            "value": "Luke Skywalker X"
+          },
+          {
+            "active": true,
+            "key": "symptoms",
+            "value": [
+              "cough",
+              "dry throat",
+              "cant feel legs",
+              "taste is gone"
+            ]
+          },
+          {
+            "active": true,
+            "key": "assignedDoctor",
+            "value": 2235
+          }
+        ],
+        "rawParams": "{\n    \"fullName\": \"Luke Skywalker X\",\n    \"symptoms\": [\n        \"cough\",\n        \"dry throat\",\n        \"cant feel legs\",\n        \"taste is gone\"\n    ],\n    \"assignedDoctor\": 2235\n}",
+        "rawInput": true,
+        "contentType": "application/json",
+        "requestType": "",
+        "preRequestScript": "// pw.env.set('variable', 'value');",
+        "testScript": "// pw.expect('variable').toBe('value');",
+        "name": "Update service user",
+        "collection": 1
+      },
+      {
+        "url": "https://64477626be16.ngrok.io",
+        "path": "/service-users",
+        "method": "GET",
+        "auth": "None",
+        "httpUser": "",
+        "httpPassword": "",
+        "passwordFieldType": "password",
+        "bearerToken": "",
+        "headers": [],
+        "params": [],
+        "bodyParams": [],
+        "rawParams": "",
+        "rawInput": true,
+        "contentType": "",
+        "requestType": "",
+        "preRequestScript": "// pw.env.set('variable', 'value');",
+        "testScript": "// pw.expect('variable').toBe('value');",
+        "name": "Get service users",
+        "collection": 1
+      },
+      {
+        "url": "https://64477626be16.ngrok.io",
+        "path": "/service-users",
+        "method": "POST",
+        "auth": "None",
+        "httpUser": "",
+        "httpPassword": "",
+        "passwordFieldType": "password",
+        "bearerToken": "",
+        "headers": [],
+        "params": [],
+        "bodyParams": [
+          {
+            "active": true,
+            "key": "fullName",
+            "value": "Ahsano Tano"
+          },
+          {
+            "active": true,
+            "key": "symptoms",
+            "value": [
+              "fever",
+              "light yellow color in eye"
+            ]
+          },
+          {
+            "active": true,
+            "key": "assignedDoctor",
+            "value": 2235
+          }
+        ],
+        "rawParams": "{\n    \"fullName\": \"Ahsano Tano\",\n    \"symptoms\": [\n        \"fever\",\n        \"light yellow color in eye\"\n    ],\n    \"assignedDoctor\": 2235\n}",
+        "rawInput": true,
+        "contentType": "application/json",
+        "requestType": "",
+        "preRequestScript": "// pw.env.set('variable', 'value');",
+        "testScript": "// pw.expect('variable').toBe('value');",
+        "name": "Get service users",
+        "collection": 1
+      },
+      {
+        "url": "https://64477626be16.ngrok.io",
+        "path": "/service-users/1236",
+        "method": "DELETE",
+        "auth": "None",
+        "httpUser": "",
+        "httpPassword": "",
+        "passwordFieldType": "password",
+        "bearerToken": "",
+        "headers": [],
+        "params": [],
+        "bodyParams": [
+          {
+            "active": true,
+            "key": "fullName",
+            "value": "Ahsano Tano"
+          },
+          {
+            "active": true,
+            "key": "symptoms",
+            "value": [
+              "fever",
+              "light yellow color in eye"
+            ]
+          },
+          {
+            "active": true,
+            "key": "assignedDoctor",
+            "value": 2235
+          }
+        ],
+        "rawParams": "{\n    \"fullName\": \"Ahsano Tano\",\n    \"symptoms\": [\n        \"fever\",\n        \"light yellow color in eye\"\n    ],\n    \"assignedDoctor\": 2235\n}",
+        "rawInput": true,
+        "contentType": "application/json",
+        "requestType": "",
+        "preRequestScript": "// pw.env.set('variable', 'value');",
+        "testScript": "// pw.expect('variable').toBe('value');",
+        "name": "Delete service users",
+        "collection": 1
+      }
+    ],
+    "flag": "rest"
+  }
+]
